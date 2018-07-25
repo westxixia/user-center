@@ -47,7 +47,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.example.usercenter.springbootadmin.server.EurekaServerApplication</mainClass>
+                    <mainClass>com.example.usercenter.springbootadmin.server.SpringbootAdminApplication</mainClass>
                 </configuration>
                 <executions>
                     <execution>
@@ -65,7 +65,7 @@
                 <groupId>com.spotify</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
                 <configuration>
-                    <skipDockerBuild>true</skipDockerBuild>
+                    <skipDockerBuild>false</skipDockerBuild>
                 </configuration>
             </plugin>
         </plugins>

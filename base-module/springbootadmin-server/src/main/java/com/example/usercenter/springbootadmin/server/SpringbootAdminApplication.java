@@ -15,9 +15,9 @@ import org.springframework.security.web.authentication.SavedRequestAwareAuthenti
 @EnableAutoConfiguration
 @EnableAdminServer
 @SpringCloudApplication
-public class SpringBootAdminApplication {
+public class SpringbootAdminApplication {
     public static void main(String[] args) {
-        SpringApplication.run(SpringBootAdminApplication.class, args);
+        SpringApplication.run(SpringbootAdminApplication.class, args);
     }
 
     @Profile("insecure")

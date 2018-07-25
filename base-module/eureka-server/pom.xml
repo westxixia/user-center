@@ -43,7 +43,7 @@
                 <groupId>com.spotify</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
                 <configuration>
-                    <skipDockerBuild>true</skipDockerBuild>
+                    <skipDockerBuild>false</skipDockerBuild>
                 </configuration>
             </plugin>
         </plugins>

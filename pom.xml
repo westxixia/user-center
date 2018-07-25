@@ -9,7 +9,7 @@
     <modules>
         <module>pom-module</module>
         <module>base-module</module>
-        <module>springbootadmin-server</module>
+        <module>demo-module</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -61,20 +61,6 @@
             <version>${commons-lang3.version}</version>
         </dependency>
         <!-- utils end -->
-
-        <!-- swagger2 begin -->
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger-ui</artifactId>
-            <version>${springfox.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger2</artifactId>
-            <version>${springfox.version}</version>
-        </dependency>
-        <!-- swagger2 end -->
-
     </dependencies>
 
     <dependencyManagement>
@@ -86,6 +72,19 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
+            <!-- swagger2 begin -->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${springfox.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${springfox.version}</version>
+            </dependency>
+            <!-- swagger2 end -->
         </dependencies>
     </dependencyManagement>
 
@@ -105,12 +104,15 @@
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>1.1.0</version>
                 <configuration>
+                    <skipDockerBuild>true</skipDockerBuild>
                     <imageName>${docker.repository}/${docker.registry.name}/${project.name}:${project.version}
                     </imageName>
-                    <dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory>
-                    <skipDockerBuild>true</skipDockerBuild>
+                    <baseImage>java:8u111</baseImage>
+                    <volumes>/tmp</volumes>
+                    <entryPoint>["java", "-jar", "/${project.build.finalName}.jar"]</entryPoint>
                     <resources>
                         <resource>
+                            <targetPath>/</targetPath>
                             <directory>${project.build.directory}</directory>
                             <include>${project.build.finalName}.jar</include>
                         </resource>
