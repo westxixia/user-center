@@ -9,6 +9,7 @@
     <modules>
         <module>pom-module</module>
         <module>base-module</module>
+        <module>springbootadmin-server</module>
     </modules>
     <packaging>pom</packaging>
 

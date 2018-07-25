@@ -14,5 +14,10 @@
 
     <modules>
         <module>eureka-server</module>
+        <module>springbootadmin-server</module>
     </modules>
+
+    <dependencies>
+
+    </dependencies>
 </project>
